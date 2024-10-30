@@ -1,0 +1,131 @@
+
+  
+  /* Contenedor del formulario */
+  .form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 15px;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* Título del formulario */
+  .custom-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(69, 129, 143, 1);
+    font-weight: 600;
+  }
+  
+  /* Campos de entrada */
+  .custom-form input,
+  .custom-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid rgb(69, 129, 143, 1);
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  /* Efecto en foco */
+  .custom-form input:focus,
+  .custom-form textarea:focus {
+    border-color: #0984e3;
+  }
+  
+  /* Botón de envío */
+  .custom-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #0984e3;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Efecto hover en el botón */
+  .custom-form button:hover {
+    background-color: #74b9ff;
+  }
+  
+  /* Mensaje de error */
+  .error-message {
+    background-color: #ff7675;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  .card-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    gap: 20px;
+  }
+  .card img {
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card input:checked + img {
+    transform: scale(1.1);
+    /*box-shadow: 0 0 10px rgba(0, 132, 227, 0.8);*/
+  }
+
+  .terms {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .terms input {
+    margin-right: 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 15px;
+    background-color: #0984e3;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #74b9ff;
+  }
+  
+  /* Animación de aparición */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .form-content input,
+  .form-content select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+  }
