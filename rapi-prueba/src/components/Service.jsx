@@ -1,18 +1,15 @@
 import React from "react";
+import aprobado from '../images/aprobado.jpg';
+import asistencia from '../images/asistencia.jpg';
+import seguridad from '../images/seguridad.jpg';
+import periodo from '../images/periodo.jpg';
+
+
 
 function Service(){
      return (
         <section className="section service" aria-label="service">
           <div className="container">
-            <img
-              src="./assets/images/service-image.png"
-              width="122"
-              height="136"
-              loading="lazy"
-              alt=""
-              className="img"
-            />
-
             <h2 className="h2 section-title">
               <span className="span">El dinero que necesitas,</span> cuando lo
               necesitas.
@@ -23,7 +20,7 @@ function Service(){
                 <div className="service-card">
                   <figure className="card-icon">
                     <img
-                      src="./assets/images/service-icon-1.png"
+                      src={aprobado}
                       width="70"
                       height="70"
                       loading="lazy"
@@ -43,7 +40,7 @@ function Service(){
                 <div className="service-card">
                   <figure className="card-icon">
                     <img
-                      src="./assets/images/service-icon-2.png"
+                      src={asistencia}
                       width="70"
                       height="70"
                       loading="lazy"
@@ -63,7 +60,7 @@ function Service(){
                 <div className="service-card">
                   <figure className="card-icon">
                     <img
-                      src="./assets/images/service-icon-3.png"
+                      src={seguridad}
                       width="70"
                       height="70"
                       loading="lazy"
@@ -83,7 +80,7 @@ function Service(){
                 <div className="service-card">
                   <figure className="card-icon">
                     <img
-                      src="./assets/images/service-icon-4.png"
+                      src={periodo}
                       width="70"
                       height="70"
                       loading="lazy"

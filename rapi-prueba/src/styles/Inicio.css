@@ -4,7 +4,7 @@
    */
 
   --bright-yellow-crayola: hsl(36, 94%, 57%);
-  --portland-orange:rgb(12, 250, 230);
+  --portland-orange:rgba(21, 219, 160, 0.705);
   --battleship-gray: hsl(0, 0%, 53%);
   --silver-chalice: hsl(0, 0%, 70%);
   --spanish-gray: hsl(0, 0%, 60%);
@@ -1079,7 +1079,7 @@ body {
 
 .caja-iniciar button:hover {
   background: #fff;
-  color: rgb(0, 225, 255);
+  color: rgba(0, 225, 255, 0.795);
 }
 .caja-iniciar {
   position: fixed; /* Mantiene el botón en una posición fija en la pantalla */
@@ -1093,7 +1093,7 @@ body {
 
 .caja-iniciar button {
   padding: 10px 50px; /* Ajusta el tamaño del botón */
-  border: 2px solid white; /* Cambia el color del borde */
+  border: 2px solid rgb(0, 0, 0); /* Cambia el color del borde */
   background-color: transparent; /* Cambia el color de fondo */
   font-size: 16px; /* Ajusta el tamaño de la fuente */
   font-weight: bold; /* Cambia el peso de la fuente */

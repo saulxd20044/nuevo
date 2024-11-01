@@ -1,4 +1,9 @@
 import React from "react";
+import image1 from '../images/1.jpg';
+import image2 from '../images/2.jpg';
+import image3 from '../images/3.jpg';
+import image4 from '../images/4.jpg';
+import image5 from '../images/5.jpg';
 
 function Brand() {
     return (
@@ -15,7 +20,7 @@ function Brand() {
                             style={{ width: 150, height: 150 }}
                         >
                             <img
-                                src="./assets/images/brand-1.jpg"
+                                src={image1}
                                 width="150"
                                 height="150"
                                 loading="lazy"
@@ -31,7 +36,7 @@ function Brand() {
                             style={{ width: 150, height: 150 }}
                         >
                             <img
-                                src="./assets/images/brand-2.jpg"
+                                src={image2}
                                 width="150"
                                 height="150"
                                 loading="lazy"
@@ -47,7 +52,7 @@ function Brand() {
                             style={{ width: 150, height: 150 }}
                         >
                             <img
-                                src="./assets/images/brand-3.jpg"
+                                src={image3}
                                 width="150"
                                 height="150"
                                 loading="lazy"
@@ -63,7 +68,7 @@ function Brand() {
                             style={{ width: 150, height: 150 }}
                         >
                             <img
-                                src="./assets/images/brand-4.jpg"
+                                src={image4}
                                 width="150"
                                 height="150"
                                 loading="lazy"
@@ -79,7 +84,7 @@ function Brand() {
                             style={{ width: 150, height: 150 }}
                         >
                             <img
-                                src="./assets/images/brand-5.jpg"
+                                src={image5}
                                 width="150"
                                 height="150"
                                 loading="lazy"
