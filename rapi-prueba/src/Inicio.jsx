@@ -12,7 +12,6 @@ import Footer from './components/Footer.jsx';
 
 
 function Inicio() {
-    const [isNavOpen, setIsNavOpen] = useState(false);
   
     return (
       <>

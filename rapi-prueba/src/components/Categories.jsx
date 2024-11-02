@@ -5,7 +5,7 @@ import SimuladorPrestamo from './SimuladorPrestamo';
 function Categories() {
     const categoryCardStyle = {
         borderRadius: '10px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        boxShadow: '0 10px 8px rgba(82, 183, 136, 0.5)',
         padding: '24px', // equivalente a p-6 en Tailwind
         backgroundColor: 'white',
         transition: 'transform 0.2s ease-in-out',
@@ -14,7 +14,7 @@ function Categories() {
     const containerStyle = {
         display: 'flex',
         flexWrap: 'wrap',
-        gap: '1.5rem', // equivalente a gap-6 en Tailwind
+        gap: '10rem', // equivalente a gap-6 en Tailwind
         justifyContent: 'center',
     };
 
@@ -27,7 +27,7 @@ function Categories() {
                     </h2>
 
                     <ul style={containerStyle}>
-                        <li style={{ width: '100%', maxWidth: '400px', padding: '16px' }}>
+                        <li style={{ width: '100%', maxWidth: '400px', padding: '10px' }}>
                             <div
                                 style={categoryCardStyle}
                                 onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}

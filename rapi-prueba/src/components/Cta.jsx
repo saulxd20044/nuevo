@@ -1,11 +1,13 @@
 import React from 'react';
+import banner from '../images/banner.jpg';
 
 function Cta() {
   return (
     <section
-      className="cta has-bg-video"
-      aria-label="cta"
-    >
+    class="cta has-bg-image"
+    aria-label="cta"
+    style={{ backgroundImage: `url(${banner})` }}
+   >
       <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
         <figure className="cta-banner" style={{ marginTop: '20px' }}>
           <iframe
