@@ -11,70 +11,96 @@ const SimuladorPrestamo = () => {
     aceptaTerminos: false,
   });
 
+  const ENP_POINT_REGISTER_USER = 'http://localhost:8080/api/v1/simulateLoan'
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.aceptaTerminos) {
-      alert('Debes aceptar los términos y condiciones.');
-      return;
+
+    const data = Object.fromEntries(new FormData(e.target))
+
+    console.log(data)
+
+    try {
+      
+      if (!formData.aceptaTerminos) {
+        alert('Debes aceptar los términos y condiciones.');
+        return;
+      }
+
+      await fetch(ENP_POINT_REGISTER_USER, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      alert('Solicitud enviada exitosamente.');
+
+
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+      alert("Ocurrió un problema al conectar con el servidor.");
     }
-    alert('Solicitud enviada exitosamente.');
+
+
   };
 
   return (
     <div className="simulador-container">
       <h1>Simulador de Préstamo</h1>
       <form className="simulador-form" onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          name="nombre" 
-          placeholder="Nombre y Apellido" 
-          value={formData.nombre} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="text"
+          name="name"
+          placeholder="Nombre y Apellido"
+          value={formData.name}
+          onChange={handleChange}
+          required
         />
-        <input 
-          type="text" 
-          name="dni" 
-          placeholder="N° DNI" 
-          value={formData.dni} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="text"
+          name="dni"
+          placeholder="N° DNI"
+          value={formData.dni}
+          onChange={handleChange}
+          required
         />
-        <input 
-          type="number" 
-          name="monto" 
-          placeholder="Monto del Préstamo" 
-          value={formData.monto} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="number"
+          name="amount"
+          placeholder="Monto del Préstamo"
+          value={formData.amount}
+          onChange={handleChange}
+          required
         />
-        <select name="plazo" value={formData.plazo} onChange={handleChange} required>
+        <select name="installments" value={formData.installments} onChange={handleChange} required>
           <option value="" disabled>Seleccione el plazo</option>
           <option value="3">3 meses</option>
           <option value="6">6 meses</option>
           <option value="12">12 meses</option>
         </select>
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Correo Electrónico" 
-          value={formData.email} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="email"
+          name="email"
+          placeholder="Correo Electrónico"
+          value={formData.email}
+          onChange={handleChange}
+          required
         />
         <div className="terms">
-          <input 
-            type="checkbox" 
-            id="terms" 
-            name="aceptaTerminos" 
-            checked={formData.aceptaTerminos} 
-            onChange={handleChange} 
-            required 
+          <input
+            type="checkbox"
+            id="terms"
+            name="aceptaTerminos"
+            checked={formData.aceptaTerminos}
+            onChange={handleChange}
+            required
           />
           <label htmlFor="terms">He leído y acepto los <a href="#">T&C y las políticas de privacidad</a></label>
         </div>
