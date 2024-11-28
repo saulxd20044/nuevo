@@ -1,8 +1,8 @@
-// components/LoginForm.js
-import React from 'react';
+import React , { useState }from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
-
+    const navigate = useNavigate();
     const END_POINT_CREATE = "http://localhost:8080/api/v1/auth/login"
 
     const handleLoginSubmit = async (e) => {
@@ -31,12 +31,13 @@ function LoginForm() {
 
             localStorage.setItem('customerData', JSON.stringify(customerData));
 
-            alert("Login exitoso");
+            // Redirección al componente Rapimoney
+            navigate('/dashboard');
+            
         } catch (error) {
             console.error("Error en la solicitud:", error);
             alert("Ocurrió un problema al conectar con el servidor.");
         }
-
     };
 
     return (
