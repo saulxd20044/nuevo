@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const navigate = useNavigate(); // Inicializa useNavigate
+  const navigate = useNavigate();
 
   const handleNavLinkClick = () => {
     setIsNavOpen(false);
   };
 
   const handleLoginClick = () => {
-    navigate('/login'); // Cambia '/login' a la ruta que desees
+    navigate('/login');
+  };
+
+  const handlePersonaClick = () => {
+    navigate('/persona');
   };
 
   return (
@@ -29,13 +33,10 @@ function Header() {
         <nav className={`navbar ${isNavOpen ? 'active' : ''}`}>
           <ul className="navbar-list">
             <li className="navbar-item">
-              <a href="#home" className="navbar-link" onClick={handleNavLinkClick}>Inicio</a>
-            </li>
-            <li className="navbar-item">
               <a href="#shop" className="navbar-link" onClick={handleNavLinkClick}>Servicios</a>
             </li>
             <li className="navbar-item">
-              <a href="#categories" className="navbar-link" onClick={handleNavLinkClick}>Persona</a>
+              <a onClick={handlePersonaClick} className="navbar-link" style={{cursor: 'pointer'}}>Persona</a>
             </li>
             <li className="navbar-item">
               <a href="#footer" className="navbar-link" onClick={handleNavLinkClick}>Contacto</a>
@@ -52,5 +53,6 @@ function Header() {
       </div>
     </header>
   );
-};  
+};
+
 export default Header;
