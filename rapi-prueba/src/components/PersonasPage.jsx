@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreditCard, Wallet, PiggyBank, User, Home, Calculator, Shield } from 'lucide-react';
+//import { CreditCard, Wallet, PiggyBank, User, Home, Calculator, Shield } from 'lucide-react';
 
 const PersonasPage = () => {
   const productosDestacados = [
