@@ -4,8 +4,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Inicio from './Inicio';
 import App from './App';
 import FormularioEvaluacion from './components/FormularioEvaluacion';
-import Header from './components/Header';
-import Usuario from './Usuario';
+import Usuario from './usuario';
 import Persona from './Persona';
 
 

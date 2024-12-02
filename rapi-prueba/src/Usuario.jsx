@@ -1,5 +1,5 @@
 import React from 'react';
-import Rapimoney from './components/Rapimoney'; // Importación por defecto
+import Rapimoney from './components/Rapimoney';
 
 function Usuario() {
     return (

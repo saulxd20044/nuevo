@@ -1,4 +1,4 @@
-import React , { useState }from 'react';
+import React , {  }from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
@@ -31,7 +31,6 @@ function LoginForm() {
 
             localStorage.setItem('customerData', JSON.stringify(customerData));
 
-            // Redirección al componente Rapimoney
             navigate('/dashboard');
             
         } catch (error) {

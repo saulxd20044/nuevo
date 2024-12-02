@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/RapimoneyUser.css'; // Importar los estilos
+import Logo from './Logo';
+
 
 function Rapimoney() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -95,8 +97,8 @@ function Rapimoney() {
     <div className="rapimoney">
       {/*El encabezado */}
       <header>
-        <div className="header-container">
-          <h1>Rapimoney</h1>
+      <div className="header-container">
+             <Logo />
           <nav>
             <a href="#">Inicio</a>
             <a href="#">Operaciones</a>
