@@ -235,32 +235,49 @@ section {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    padding-top: 50px;
+    overflow-y: auto; /* Permitir scroll si es necesario */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .modal.open {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
     background-color: #fff;
-    margin: auto;
     padding: 30px;
     width: 90%;
     max-width: 600px;
+    max-height: 90vh; /* Altura máxima del 90% de la ventana */
     border-radius: 12px;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.modal-content h2 {
+    margin: 0 0 20px 0;
+    padding-right: 30px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 2;
 }
 
 .close {
     position: absolute;
     right: 20px;
-    top: 10px;
+    top: 20px;
     color: #aaa;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 3;
 }
 
 .close:hover {
@@ -269,6 +286,27 @@ section {
 
 .form-fields {
     margin-top: 20px;
+    overflow-y: auto; /* Habilitar scroll */
+    max-height: calc(90vh - 160px); /* Altura máxima considerando header y botón */
+    padding-right: 10px;
+}
+
+.form-fields::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-fields::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.form-fields::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 4px;
+}
+
+.form-fields::-webkit-scrollbar-thumb:hover {
+    background: #c1c1c1;
 }
 
 .form-fields label {
@@ -285,6 +323,14 @@ section {
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-fields input:focus,
+.form-fields select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
 }
 
 form button[type="submit"] {
@@ -298,32 +344,72 @@ form button[type="submit"] {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
 }
 
 form button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Estilos para errores */
+.error {
+    color: #dc3545;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+/* Modal de confirmación */
+.confirmation-details {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.confirmation-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.confirm-button {
+    flex: 1;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    flex: 1;
+    padding: 10px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.confirm-button:hover {
+    background-color: #218838;
+}
+
+.cancel-button:hover {
+    background-color: #5a6268;
+}
+
 @media (max-width: 768px) {
     .modal-content {
         width: 95%;
-        margin: 20px auto;
+        margin: 10px auto;
+        max-height: 95vh;
     }
 
-    .account {
-        min-width: 100%;
-    }
-
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav {
-        margin-top: 15px;
-    }
-
-    nav a {
-        margin: 0 10px;
+    .form-fields {
+        max-height: calc(95vh - 160px);
     }
 }
