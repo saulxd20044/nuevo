@@ -1,15 +1,16 @@
-
 /* Estilos generales para el encabezado */
 header {
-    background-color: rgb(29, 214, 183);
+    background-color: rgb(29, 131, 214);
     color: white;
     padding: 20px;
+    text-align: right; /* Cambiado para alinear el contenido a la derecha */
 }
 
 .header-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Cambiado para alinear el contenido a la derecha */
     align-items: center;
+    position: relative;
 }
 
 header h1 {
@@ -19,7 +20,7 @@ header h1 {
 
 nav {
     display: flex;
-    gap: 20px;
+    gap: 40px;
 }
 
 nav a {

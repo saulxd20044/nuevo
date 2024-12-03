@@ -100,7 +100,6 @@ function Rapimoney() {
       <div className="header-container">
              <Logo />
           <nav>
-            <a href="#">Inicio</a>
             <a href="#">Operaciones</a>
             <a href="#">Explora</a>
             <a href="#">Cerrar Sesión</a>
@@ -202,17 +201,21 @@ function Rapimoney() {
 
               {accountType === 'loan' ? (
                 <div className="form-fields">
-                  <label>
-                    Tipo de Préstamo:
-                    <input
-                      type="text"
-                      name="loanType"
-                      value={formData.loanType}
-                      onChange={handleFormChange}
-                      placeholder="Ej. Personal, Hipotecario"
-                      required
-                    />
-                  </label>
+                 <label>
+                  Tipo de Préstamo:
+                  <select
+                    name="loanType"
+                    value={formData.loanType}
+                    onChange={handleFormChange}
+                    required
+                  >
+                    <option value="">Seleccione tipo de préstamo</option>
+                    <option value="personal">Personal</option>
+                    <option value="hipotecario">Hipotecario</option>
+                    <option value="automotriz">Automotriz</option>
+                    <option value="estudiantil">Estudiantil</option>
+                  </select>
+                </label>
 
                   <label>
                     Monto del Préstamo:
@@ -222,20 +225,28 @@ function Rapimoney() {
                       value={formData.loanAmount}
                       onChange={handleFormChange}
                       placeholder="Monto"
+                       min="0"
+                      step="100"
                       required
                     />
                   </label>
 
                   <label>
                     Plazo (meses):
-                    <input
-                      type="number"
+                    <select
                       name="loanTerm"
                       value={formData.loanTerm}
                       onChange={handleFormChange}
-                      placeholder="Meses"
                       required
-                    />
+                    >
+                      <option value="">Seleccione el plazo</option>
+                      <option value="3">3 meses</option>
+                      <option value="6">6 meses</option>
+                      <option value="12">12 meses</option>
+                      <option value="18">18 meses</option>
+                      <option value="24">24 meses</option>
+                      <option value="36">36 meses</option>
+                    </select>
                   </label>
                 </div>
               ) : (
@@ -253,17 +264,18 @@ function Rapimoney() {
                   </label>
 
                   <label>
-                    Tipo de Tarjeta:
-                    <input
-                      type="text"
-                      name="cardType"
-                      value={formData.cardType}
-                      onChange={handleFormChange}
-                      placeholder="Ej. Débito, Crédito"
-                      required
-                    />
-                  </label>
-
+                  Tipo de Tarjeta:
+                  <select 
+                  name="cardType"
+                  value={formData.cardType}
+                  onChange={handleFormChange}
+                  required
+                >
+                    <option value="">Seleccione tipo de tarjeta</option>
+                    <option value="debito">Débito</option>
+                    <option value="credito">Crédito</option>
+                  </select>
+                </label>
                   <label>
                     Saldo Inicial:
                     <input
@@ -272,6 +284,8 @@ function Rapimoney() {
                       value={formData.cardBalance}
                       onChange={handleFormChange}
                       placeholder="Saldo"
+                      min="0"
+                      step="150"
                       required
                     />
                   </label>
