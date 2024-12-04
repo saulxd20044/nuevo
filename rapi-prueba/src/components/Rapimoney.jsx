@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { AddCardForm, LoanForm } from './ui/AddNewAcountForm';
 import { CardAccount } from './ui/CardAccount';
 import { TransferModal } from './ui/TransferModal';
+import LoanTables from './ui/LoansTable';
 
 function Rapimoney() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,7 +13,9 @@ function Rapimoney() {
   const [accountType, setAccountType] = useState('loan');
   const [userData, setUserData] = useState(null);
   const [accounts, setAccounts] = useState([]);
+  const [loans, setLoans] = useState([]);
   const CUSTOMER_CARDS_ENDPOINT = 'http://localhost:8080/api/v1/getCardsByCustomerId/'
+  const LOANS_BY_CUSTOMER_ID_ENDPOINT = 'http://localhost:8080/api/v1/getLoansByCustomerId/';
 
   useEffect(() => {
     const customerData = localStorage.getItem('customerData');
@@ -36,6 +39,20 @@ function Rapimoney() {
     }
   }, [userData])
 
+  useEffect(() => {
+    if (userData && userData.customerId && userData.token) {
+      fetch(LOANS_BY_CUSTOMER_ID_ENDPOINT + userData.customerId, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${userData.token}`,
+        },
+      })
+        .then(response => response.json())
+        .then(data => setLoans(data))
+        .catch(error => console.error('Error al obtener los datos:', error));
+    }
+  }, [userData])
 
   const showToast = (message, icon = 'success') => {
     Swal.fire({
@@ -149,7 +166,7 @@ function Rapimoney() {
           <section id="transactionHistory" className="transactions">
             <h2>Historial de Préstamos</h2>
             <div className="transaction">
-              No hay transacciones aún.
+              <LoanTables loans={loans}/>  
             </div>
           </section>
         </article>
