@@ -1,4 +1,7 @@
 import React from 'react';
+import inversion from '../images/inversion.jpg';
+import bolsillo from '../images/bolsillo.jpg';
+import crecimiento from '../images/crecimiento.jpg';
 
 function Offers() {
     return (
@@ -9,7 +12,7 @@ function Offers() {
                 <div
                   className="offer-card has-bg-image img-holder"
                   style={{
-                    backgroundImage: "url('./assets/images/offer-banner-1.jpg')",
+                    backgroundImage: `url(${inversion})` ,
                     "--width": "540",
                     "--height": "374"
                   }}
@@ -28,7 +31,7 @@ function Offers() {
                 <div
                   className="offer-card has-bg-image img-holder"
                   style={{
-                    backgroundImage: "url('./assets/images/offer-banner-2.jpg')",
+                    backgroundImage: `url(${bolsillo})` ,
                     "--width": "540",
                     "--height": "374"
                   }}
@@ -47,7 +50,7 @@ function Offers() {
                 <div
                   className="offer-card has-bg-image img-holder"
                   style={{
-                    backgroundImage: "url('./assets/images/offer-banner-3.jpg')",
+                    backgroundImage: `url(${crecimiento})` ,
                     "--width": "540",
                     "--height": "374"
                   }}

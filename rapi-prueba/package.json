@@ -10,13 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ionic/react": "^8.3.3",
+    "@ionic/react": "^8.4.1",
     "ionicons": "^7.4.0",
+    "lucide-react": "^0.462.0",
     "rapi-prueba": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
-    "react-router-dom": "^6.27.0"
+    "react-router-dom": "^6.27.0",
+    "sweetalert2": "^11.14.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

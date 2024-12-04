@@ -1,0 +1,109 @@
+<form onSubmit={handleSubmit}>
+                <label>
+                  Selecciona el tipo de cuenta:
+                  <select
+                    value={accountType}
+                    onChange={(e) => setAccountType(e.target.value)}
+                    required
+                  >
+                    <option value="loan">Cuenta de Préstamo</option>
+                    <option value="card">Tarjeta Virtual</option>
+                  </select>
+                </label>
+
+                {accountType === 'loan' ? (
+                  <div className="form-fields">
+                    <label>
+                      Tipo de Préstamo:
+                      <select
+                        name="loanType"
+                        value={formData.loanType}
+                        onChange={handleFormChange}
+                        required
+                      >
+                        <option value="">Seleccione tipo de préstamo</option>
+                        <option value="personal">Personal</option>
+                        <option value="hipotecario">Hipotecario</option>
+                        <option value="automotriz">Automotriz</option>
+                        <option value="estudiantil">Estudiantil</option>
+                      </select>
+                    </label>
+
+                    <label>
+                      Monto del Préstamo:
+                      <input
+                        type="number"
+                        name="loanAmount"
+                        value={formData.loanAmount}
+                        onChange={handleFormChange}
+                        placeholder="Monto"
+                        min="0"
+                        step="100"
+                        required
+                      />
+                    </label>
+
+                    <label>
+                      Plazo (meses):
+                      <select
+                        name="loanTerm"
+                        value={formData.loanTerm}
+                        onChange={handleFormChange}
+                        required
+                      >
+                        <option value="">Seleccione el plazo</option>
+                        <option value="3">3 meses</option>
+                        <option value="6">6 meses</option>
+                        <option value="12">12 meses</option>
+                        <option value="18">18 meses</option>
+                        <option value="24">24 meses</option>
+                        <option value="36">36 meses</option>
+                      </select>
+                    </label>
+                  </div>
+                ) : (
+                  <div className="form-fields">
+                    <label>
+                      Nombre de la Tarjeta:
+                      <input
+                        type="text"
+                        name="cardName"
+                        value={formData.cardName}
+                        onChange={handleFormChange}
+                        placeholder="Ej. Mi Tarjeta"
+                        required
+                      />
+                    </label>
+
+                    <label>
+                      Tipo de Tarjeta:
+                      <select 
+                        name="cardType"
+                        value={formData.cardType}
+                        onChange={handleFormChange}
+                        required
+                      >
+                        <option value="">Seleccione tipo de tarjeta</option>
+                        <option value="debito">Débito</option>
+                        <option value="credito">Crédito</option>
+                      </select>
+                    </label>
+
+                    <label>
+                      Saldo Inicial:
+                      <input
+                        type="number"
+                        name="cardBalance"
+                        value={formData.cardBalance}
+                        onChange={handleFormChange}
+                        placeholder="Saldo"
+                        min="0"
+                        step="150"
+                        required
+                      />
+                    </label>
+                  </div>
+                )}
+
+                <button type="submit">Añadir Cuenta</button>
+              </form>
