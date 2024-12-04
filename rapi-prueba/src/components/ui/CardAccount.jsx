@@ -1,26 +1,26 @@
 
-export function CardAccount({ card }) {
+export function CardAccount({ card, token }) {
 
-    /* const deleteAccount = (accountId) => {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "Esta acción no se puede revertir",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, eliminar',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                setAccounts(prev => prev.filter(card => card.id !== accountId));
-                Swal.fire(
-                    '¡Eliminado!',
-                    'La cuenta ha sido eliminada exitosamente.',
-                    'success'
-                )
+    const DELETE_ACCOUNT_ENDPOINT = 'http://localhost:8080/api/v1/deletebynumbercard/'
+    const cardId = card.cardId;
+
+    const deleteAccount = async (cardId) => {
+        
+        const response = await fetch(DELETE_ACCOUNT_ENDPOINT+cardId, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
             }
-        }) */
+        }).catch(e => console.log(e))
+
+        console.log(response)
+
+        if(response.ok){
+            console.log("Cuenta eliminada")
+        }
+
+    }
 
     return (
         <div className="card">
@@ -31,7 +31,7 @@ export function CardAccount({ card }) {
             <p>Saldo disponible</p>
             <button
                 className="delete-btn"
-                /* onClick={() => deleteAccount(card.cardId)} */
+                onClick={() => deleteAccount(cardId)}
             >
                 Eliminar
             </button>

@@ -1,5 +1,5 @@
 
-export function LoanForm({ token, handleFormChange }) {
+export function LoanForm({ token, customerId, handleFormChange }) {
 
     const CREATE_LOAN_ENDPOINT = 'http://localhost:8080/api/v1/createLoan'
     /*const DELETE_CARD = 'http://localhost:8080/api/v1/deletebynumbercard/' */
@@ -9,8 +9,7 @@ export function LoanForm({ token, handleFormChange }) {
         e.preventDefault();
 
         let data = Object.fromEntries(new FormData(e.target))
-
-        console.log(data)
+        
 
         const response = fetch(CREATE_LOAN_ENDPOINT, {
             method: 'POST',
@@ -18,10 +17,15 @@ export function LoanForm({ token, handleFormChange }) {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                customerId,
+                ...data
+            })
         })
 
         if (response.ok) {
+            console.log("Error al crear el préstamo")
+        }else{
             alert("Préstamo creado")
         }
     }
@@ -32,8 +36,8 @@ export function LoanForm({ token, handleFormChange }) {
                 <label>
                     Tipo de Préstamo:
                     <select
-                        name="loanType"
-                        //value={formData.loanType}
+                        name="requestType"
+                        //value={formData.requestType}
                         onChange={handleFormChange}
                         required
                     >
@@ -49,7 +53,7 @@ export function LoanForm({ token, handleFormChange }) {
                     Monto del Préstamo:
                     <input
                         type="number"
-                        name="loanAmount"
+                        name="amount"
                         //value={formData.loanAmount}
                         onChange={handleFormChange}
                         placeholder="Monto"
@@ -62,7 +66,7 @@ export function LoanForm({ token, handleFormChange }) {
                 <label>
                     Plazo (meses):
                     <select
-                        name="loanTerm"
+                        name="installments"
                         //value={formData.loanTerm}
                         onChange={handleFormChange}
                         required
@@ -95,10 +99,10 @@ export function AddCardForm({ token, customerId, handleFormChange }) {
 
         const requestBody = {
             clientId: customerId,
-            cardNumber: data.cardNumber,
+            cardNumber: parseInt(data.cardNumber),
             nameType: data.nameType,
             cardType: data.cardType,
-            cardLimit: data.cardLimit,
+            cardLimit: parseFloat(data.cardLimit),
             expirationDate: `${data.expirationDate}T00:00:00`
         }
 
@@ -112,6 +116,8 @@ export function AddCardForm({ token, customerId, handleFormChange }) {
             },
             body: JSON.stringify(requestBody)
         }).catch(e => console.log(e))
+
+        console.log(response)
 
         if (response.ok) {
             alert('Tarjeta registrada')
@@ -182,6 +188,7 @@ export function AddCardForm({ token, customerId, handleFormChange }) {
                     />
                 </label>
             </div>
+            <button type="submit">Registrar Tarjeta</button>
         </form>
     )
 }

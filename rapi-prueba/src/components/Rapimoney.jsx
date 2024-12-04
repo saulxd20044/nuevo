@@ -16,6 +16,14 @@ function Rapimoney() {
   const [loans, setLoans] = useState([]);
   const CUSTOMER_CARDS_ENDPOINT = 'http://localhost:8080/api/v1/getCardsByCustomerId/'
   const LOANS_BY_CUSTOMER_ID_ENDPOINT = 'http://localhost:8080/api/v1/getLoansByCustomerId/';
+  const [formData, setFormData] = useState({
+    requestType: '',
+    amount: '',
+    installments: '',
+    nameType: '',
+    cardType: '',
+    cardLimit: ''
+  });
 
   useEffect(() => {
     const customerData = localStorage.getItem('customerData');
@@ -152,7 +160,7 @@ function Rapimoney() {
             <h2>Mis cuentas</h2>
             <div className="account-list">
               {accounts.map(account => (
-                <CardAccount key={account.cardId} card={account} />
+                <CardAccount key={account.cardId} card={account} token={userData.token} />
               ))}
 
               <button className="add-account" onClick={() => handleAction('addAccount')}>
@@ -166,7 +174,7 @@ function Rapimoney() {
           <section id="transactionHistory" className="transactions">
             <h2>Historial de Préstamos</h2>
             <div className="transaction">
-              <LoanTables loans={loans}/>  
+              <LoanTables loans={loans} />
             </div>
           </section>
         </article>
@@ -198,7 +206,7 @@ function Rapimoney() {
                   </select>
                 </label>
                 {accountType === 'loan' ? (
-                  <LoanForm token={userData.token} handleFormChange={handleFormChange} />
+                  <LoanForm token={userData.token} customerId={userData.customerId} handleFormChange={handleFormChange} />
                 ) : (
                   <AddCardForm token={userData.token} customerId={userData.customerId} handleFormChange={handleFormChange} />
                 )
@@ -217,7 +225,7 @@ function Rapimoney() {
             >
               &times;
             </span>
-            <TransferModal accounts={accounts} token={userData.token}/>
+            <TransferModal accounts={accounts} token={userData.token} />
           </div>
         )}
       </main>
