@@ -6,6 +6,7 @@ import { AddCardForm, LoanForm } from './ui/AddNewAcountForm';
 import { CardAccount } from './ui/CardAccount';
 import { TransferModal } from './ui/TransferModal';
 import LoanTables from './ui/LoansTable';
+import UserHomeHeader from './ui/UserHomeHeader';
 
 function Rapimoney() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -121,23 +122,7 @@ function Rapimoney() {
 
   return (
     <div className="rapimoney">
-      <header>
-        <div className="header-container">
-          <Logo />
-          <nav>
-            <a href="#">Operaciones</a>
-            <a href="#">Explora</a>
-            <a href="#">Cerrar Sesión</a>
-          </nav>
-        </div>
-        {userData ? (
-          <p>
-            Bienvenido, <strong>{userData.username} {userData.lastName}</strong>
-          </p>
-        ) : (
-          <p>Cargando...</p>
-        )}
-      </header>
+      <UserHomeHeader userData={userData} />
 
       <main>
         <article className="main-container">

@@ -1,5 +1,9 @@
+import { useNavigate } from "react-router-dom";
 
 function LoanTables({ loans }) {
+
+    const navigate = useNavigate()
+
     return (
 
         <table border="1" style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -14,7 +18,7 @@ function LoanTables({ loans }) {
             </thead>
             <tbody>
                 {loans.map((loan, index) => (
-                    <tr key={index}>
+                    <tr key={index} onClick={() => navigate(`/loanDetails/${loan.loanId}`)}>
                         <td>{loan.loanId}</td>
                         <td>{loan.requestType}</td>
                         <td>{loan.amount}</td>
